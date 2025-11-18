@@ -32,5 +32,5 @@ document.getElementById("create-form").addEventListener("submit", function (e) {
 });
 
 function saveAccount(data) {
-    console.log(data);
+    localStorage.setItem(data.email, JSON.stringify(data));
 }

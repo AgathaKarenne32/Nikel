@@ -1,6 +1,6 @@
 # 🪙 Nikel - Gerenciador de Finanças Pessoais
 
-> **Status do Projeto:** 🚧 Pronto
+> **Status do Projeto:** ✅ Concluído
 
 O **Nikel** é uma aplicação web *Front-end* desenvolvida para auxiliar no controle financeiro pessoal. O projeto simula um ambiente bancário (Fintech) onde o usuário pode criar uma conta, realizar login e gerenciar suas entradas e saídas financeiras de forma simples e intuitiva.
 

@@ -26,6 +26,8 @@ document.getElementById("transaction-form").addEventListener("submit", function 
     e.target.reset();
     myModal.hide();
 
+    getTransactions();
+
 
     alert("Lançamento adicionado com sucesso!");
 
@@ -49,9 +51,7 @@ function checkLogged() {
         data = JSON.parse(dataUser);
     }
 
-    getCashIn();
-    getCashOut();
-    getTotal();
+    getTransactions();
 
 }
 
@@ -60,6 +60,32 @@ function logout() {
     localStorage.removeItem("session");
 
     window.location.href = "index.html";
+}
+
+function getTransactions() {
+    const transactions = data.transactions;
+    let transactionsHtml = ``;
+
+    if (transactions.length) {
+        transactions.forEach((item) => {
+            let type = "Entrada";
+
+            if (item.type === "2") {
+                type = "Saída";
+            }
+
+            transactionsHtml += `
+                <tr>
+                    <th scope="row">${item.date}</th>
+                    <td>${item.value.toFixed(2)}</td>
+                    <td>${type}</td>
+                    <td>${item.description}</td>
+                </tr>
+            `;
+        })
+    }
+
+    document.getElementById("transactions-list").innerHTML = transactionsHtml;
 }
 
 function saveData(data) {
